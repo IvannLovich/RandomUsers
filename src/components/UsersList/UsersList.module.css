@@ -1,0 +1,13 @@
+.UsersList {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 24px;
+  padding: 16px;
+}
+
+.items {
+  margin-bottom: 24px;
+  width: 20%;
+}

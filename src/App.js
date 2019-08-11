@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import Main from './pages/Main/Main';
+import Details from './pages/Details/Details';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  //   const url = new URL(document.location);
+  //   const hasId = url.searchParams.has('id');
+  //   console.log(url.searchParams.get('id'));
+
+  //   if (hasId) {
+  //     return <Details id={url.searchParams.get('id')} />;
+  //   }
+
+  <Switch>
+    <Route exact path="/" component={Main} />
+    <Route exact path="/:id" component={Details} />
+  </Switch>
+);
 
 export default App;

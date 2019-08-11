@@ -1,0 +1,12 @@
+.detailsContainer {
+  width: fit-content;
+  margin: auto;
+  margin-top: 10rem;
+}
+
+.detailsContainer img {
+  box-shadow: 5px 6px #4b4949;
+  margin-bottom: 10px;
+  height: 250px;
+  width: 250px;
+}
