@@ -1,29 +1,52 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import UsersList from '../../components/UsersList/UsersList';
 
+import * as userActions from '../../actions/userActions';
+
+// eslint-disable-next-line react/prefer-stateless-function
 class Main extends Component {
-  state = {
-    users: []
-  };
-
   componentDidMount() {
-    fetch('https://randomuser.me/api/?seed=myseed&results=50')
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        const { results } = data;
-
-        this.setState({ users: results });
-      });
+    this.props.showUsers();
   }
+  // renderUsers = () => {
+  //   const { users } = this.props;
+  //   console.log(users);
+  //   return users.map(element => {
+  //     return (
+  //       <div>
+  //         <span>{`${element.name.first} ${element.name.last}`}</span>
+  //         <span>{element.location.city}</span>
+  //         <span>{element.location.state}</span>
+  //         <span>{element.picture.medium}</span>
+  //       </div>
+  //     );
+  //   });
+  // };
+
   render() {
+    const { users } = this.props;
     return (
       <div>
-        <UsersList list={this.state.users} />;
+        <UsersList list={users} />;
       </div>
     );
   }
 }
 
-export default Main;
+// {this.renderUsers()}
+const mapStateToProps = state => {
+  return {
+    users: state.allUsers
+  };
+};
+
+const mapDispachToProps = dispatch => {
+  return bindActionCreators({ ...userActions }, dispatch);
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispachToProps
+)(Main);

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 // import styles from './User.module.css';
 
-const Users = ({ seed, id, name, city, state, picture }) => {
+const Users = ({ id, name, city, state, picture }) => {
   return (
     <div className="card">
       <div className="card-content">
