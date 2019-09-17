@@ -6,7 +6,7 @@ import styles from './UsersList.module.css';
 const UsersList = ({ list }) => {
   return (
     <div className={styles.UsersList}>
-      {list.map((element, index) => {
+      {list.us.map((element, index) => {
         return (
           <div key={index} className={styles.items}>
             <User
